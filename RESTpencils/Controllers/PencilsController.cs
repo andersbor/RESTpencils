@@ -18,7 +18,7 @@ namespace RESTpencils.Controllers
 
         // GET: api/<PencilsController>
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK)] // docs for Swagger
         public IEnumerable<Pencil> Get()
         {
             return repository.GetAll();
@@ -26,13 +26,13 @@ namespace RESTpencils.Controllers
 
         // GET api/<PencilsController>/5
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status200OK)] // docs for Swagger
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Pencil> Get(int id)
+        public ActionResult<Pencil> Get(int id) // ActionResult allows returning status codes
         {
             Pencil? p = repository.GetById(id);
-            if (p == null) return NotFound();
-            return Ok(p);
+            if (p == null) return NotFound(); // 404
+            return Ok(p); // 200 with pencil in body
         }
 
         // POST api/<PencilsController>
