@@ -1,0 +1,6 @@
+@RESTpencils_HostAddress = http://localhost:5005
+
+GET {{RESTpencils_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
